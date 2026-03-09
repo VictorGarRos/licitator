@@ -100,7 +100,6 @@ export default function Dashboard() {
                         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-4">
                             <div>
                                 <h1 className="text-3xl sm:text-4xl font-serif text-[var(--text)] tracking-tight">Dashboard General</h1>
-                                <p className="text-[var(--text2)] mt-1 text-sm sm:text-base">Sincronización automatizada de licitaciones públicas</p>
                             </div>
                             <div className="text-left sm:text-right hidden sm:block">
                                 <p className="text-xs sm:text-sm font-mono text-[var(--text3)] uppercase tracking-widest">Última actualización</p>
