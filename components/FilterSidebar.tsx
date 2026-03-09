@@ -1,5 +1,5 @@
 'use client'
-import { Filter, Search, LayoutDashboard, Database, Settings, LogOut, X } from 'lucide-react'
+import { Filter, Search, LayoutDashboard, Database, Settings, LogOut, X, Landmark } from 'lucide-react'
 import Link from 'next/link'
 
 // types
@@ -57,11 +57,15 @@ export default function FilterSidebar({ filters, onChange, stats, onClose }: Pro
         <aside className="w-[280px] bg-[var(--surface)] border-r border-[var(--border)] p-6 sm:p-8 h-full flex flex-col gap-8 sm:gap-10 shadow-xl lg:shadow-none">
             {/* Brand & Close */}
             <div className="flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                    <div className="w-10 h-10 rounded-2xl bg-[var(--accent)] text-white flex items-center justify-center font-bold font-serif text-xl shadow-lg shadow-[var(--accent)]/30">L</div>
+                <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-all group">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--accent)] to-blue-600 text-white flex items-center justify-center shadow-lg shadow-[var(--accent)]/30 group-hover:scale-105 transition-transform">
+                        <Landmark className="w-5 h-5" />
+                    </div>
                     <div>
-                        <h1 className="font-serif text-xl tracking-tighter text-[var(--text)] font-bold">Licitator</h1>
-                        <p className="text-[9px] font-mono text-[var(--text3)] uppercase tracking-[0.2em] leading-none">Management</p>
+                        <h1 className="font-serif text-xl tracking-tight text-[var(--text)] font-extrabold flex items-center gap-1">
+                            Licitator<span className="text-[var(--accent)]">.</span>
+                        </h1>
+                        <p className="text-[9px] font-mono text-[var(--text3)] uppercase tracking-[0.25em] leading-none mt-0.5 font-semibold">Pro</p>
                     </div>
                 </Link>
                 {onClose && (

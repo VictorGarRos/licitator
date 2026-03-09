@@ -5,7 +5,7 @@ import StatsRow from './StatsRow'
 import LicitacionCard from './LicitacionCard'
 import RightPanel from './RightPanel'
 import Ticker from './Ticker'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Landmark } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Dashboard() {
@@ -67,9 +67,13 @@ export default function Dashboard() {
 
             {/* Mobile Header */}
             <header className="lg:hidden shrink-0 flex items-center justify-between p-4 bg-[var(--surface)] border-b border-[var(--border)] z-40">
-                <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <div className="w-8 h-8 rounded-lg bg-[var(--accent)] text-white flex items-center justify-center font-bold font-serif text-lg shadow-md shadow-[var(--accent)]/30">L</div>
-                    <h1 className="font-serif text-lg tracking-tighter text-[var(--text)] font-bold">Licitator</h1>
+                <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--accent)] to-blue-600 text-white flex items-center justify-center shadow-md shadow-[var(--accent)]/30">
+                        <Landmark className="w-4 h-4" />
+                    </div>
+                    <h1 className="font-serif text-lg tracking-tight text-[var(--text)] font-extrabold flex items-center">
+                        Licitator<span className="text-[var(--accent)]">.</span>
+                    </h1>
                 </Link>
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
