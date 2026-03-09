@@ -21,8 +21,8 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'LICITATOR - Monitorización de Licitaciones',
-  description: 'Sistema automatizado de monitorización de licitaciones públicas de España',
+  title: 'LICITATOR | Monitorización de Licitaciones',
+  description: 'Sistema profesional de monitorización de licitaciones públicas de España en tiempo real',
 }
 
 export default function RootLayout({
