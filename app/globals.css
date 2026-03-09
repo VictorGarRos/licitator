@@ -8,10 +8,10 @@
   --color-surface-hover: #fafafa;
   --color-border-subtle: #f0f0f0;
 
-  --color-accent-primary: #B30500;
+  --color-accent-primary: #0ea5e9;
   --color-accent-secondary: #000000;
 
-  --color-status-urgent: #B30500;
+  --color-status-urgent: #0ea5e9;
   --color-status-ok: #4caf82;
 
   --color-text-muted: #666666;
@@ -27,9 +27,9 @@
   --surface: #ffffff;
   --surface2: #f0f0f0;
   --border: #f0f0f0;
-  --accent: #B30500;
+  --accent: #0ea5e9;
   --accent2: #111111;
-  --red: #B30500;
+  --red: #0ea5e9;
   --green: #4caf82;
   --text: #111111;
   --text2: #666666;

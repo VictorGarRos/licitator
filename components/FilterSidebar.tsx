@@ -170,8 +170,8 @@ export default function FilterSidebar({ filters, onChange, stats, onClose }: Pro
             {/* Footer / Account */}
             <div className="pt-6 border-t border-[var(--border)]">
                 <div className="flex items-center gap-3 px-2 text-left">
-                    <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-white shadow-sm shrink-0">
-                        <img src="https://ui-avatars.com/api/?name=Admin&bg=B30500&color=fff" alt="Avatar" />
+                    <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-[var(--surface)] shadow-sm shrink-0">
+                        <img src="https://ui-avatars.com/api/?name=Admin&bg=0ea5e9&color=fff" alt="Avatar" />
                     </div>
                     <div className="flex-1 overflow-hidden">
                         <p className="text-xs font-bold text-[var(--text)] truncate">Administrador</p>

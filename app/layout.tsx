@@ -36,9 +36,9 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{
           __html: `
           :root {
-            --accent: #B30500 !important;
-            --color-accent-primary: #B30500 !important;
-            --red: #B30500 !important;
+            --accent: #0ea5e9 !important;
+            --color-accent-primary: #0ea5e9 !important;
+            --red: #0ea5e9 !important;
           }
         `}} />
       </head>
