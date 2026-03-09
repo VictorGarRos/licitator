@@ -28,6 +28,14 @@ const CATEGORIAS_MAP: Record<string, string> = {
     'OTRO': 'Otros'
 }
 
+const FUENTES_MAP: Record<string, string> = {
+    'PLACE': 'Plataforma Sector Público',
+    'BOE': 'Boletín Oficial del Estado',
+    'DOGC': 'Generalitat Catalunya',
+    'BOCM': 'Comunidad de Madrid',
+    'BOJA': 'Junta de Andalucía'
+}
+
 const CATEGORIAS = ['TODAS', 'COMUNICACION', 'PUBLICIDAD', 'MEDIOS', 'DIGITAL', 'EVENTOS', 'OTRO']
 
 export default function FilterSidebar({ filters, onChange, stats, onClose }: Props) {
@@ -106,7 +114,7 @@ export default function FilterSidebar({ filters, onChange, stats, onClose }: Pro
                                         : 'text-[var(--text2)] hover:bg-[var(--surface2)] hover:text-[var(--text)]'
                                     }`}
                             >
-                                <span>{f.fuente}</span>
+                                <span className="truncate pr-2">{FUENTES_MAP[f.fuente] || f.fuente}</span>
                                 <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded-md ${filters.fuente === f.fuente ? 'bg-white/20 text-white' : 'bg-[var(--surface2)] text-[var(--text3)]'}`}>
                                     {f._count}
                                 </span>
