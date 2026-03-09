@@ -17,8 +17,8 @@
   --color-text-muted: #666666;
   --color-text-dimmed: #999999;
 
-  --font-serif: var(--font-outfit), sans-serif;
-  --font-mono: var(--font-roboto-mono), monospace;
+  --font-serif: var(--font-inter), sans-serif;
+  --font-mono: var(--font-inter), monospace;
   --font-sans: var(--font-inter), sans-serif;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .animate-marquee {
-  animation: marquee 150s linear infinite;
+  animation: marquee 400s linear infinite;
 }
 
 .animate-marquee:hover {
