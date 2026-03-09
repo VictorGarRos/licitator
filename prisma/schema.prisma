@@ -1,0 +1,77 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Licitacion {
+  id               Int      @id @default(autoincrement())
+  expediente       String   @unique          // ID único de la licitación
+  titulo           String
+  organismo        String
+  categoria        Categoria
+  presupuesto      Float                     // En euros
+  presupuestoIva   Float?                    // Presupuesto con IVA
+  plazoOferta      DateTime?                 // Fecha límite de oferta
+  fechaPublicacion DateTime
+  estado           Estado   @default(ACTIVA)
+  fuente           Fuente
+  urlOriginal      String
+  cpv              String[]                  // Códigos CPV
+  descripcion      String?
+  tipoContrato     String?                   // Servicios, Suministros, Obras
+  procedimiento    String?                   // Abierto, Restringido, Negociado
+  valorContrato    Float?
+  nuevo            Boolean  @default(true)   // True si se añadió en las últimas 24h
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([categoria])
+  @@index([fuente])
+  @@index([plazoOferta])
+  @@index([presupuesto])
+  @@index([fechaPublicacion])
+}
+
+enum Categoria {
+  COMUNICACION
+  PUBLICIDAD
+  MEDIOS
+  DIGITAL
+  EVENTOS
+  OTRO
+}
+
+enum Estado {
+  ACTIVA
+  ADJUDICADA
+  DESIERTA
+  ANULADA
+}
+
+enum Fuente {
+  PLACE
+  BOE
+  DOGC
+  BOCM
+  BOJA
+  BORM
+  DOG
+  BOPV
+}
+
+model ScraperLog {
+  id        Int      @id @default(autoincrement())
+  fuente    Fuente
+  status    String                            // SUCCESS | ERROR
+  nuevas    Int      @default(0)
+  total     Int      @default(0)
+  error     String?
+  duration  Int?                              // Ms que tardó
+  createdAt DateTime @default(now())
+}
