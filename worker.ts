@@ -3,8 +3,8 @@ import { runAllScrapers } from './lib/scrapers'
 
 console.log('🚀 LICITATOR Worker iniciado')
 
-// Ejecutar cada 15 minutos
-cron.schedule('*/15 * * * *', async () => {
+// Ejecutar cada 2 horas
+cron.schedule('0 */2 * * *', async () => {
     console.log(`\n[${new Date().toISOString()}] Iniciando ciclo de scraping...`)
     await runAllScrapers()
 })
