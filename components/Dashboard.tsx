@@ -6,6 +6,7 @@ import LicitacionCard from './LicitacionCard'
 import RightPanel from './RightPanel'
 import Ticker from './Ticker'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Dashboard() {
     const [licitaciones, setLicitaciones] = useState([])
@@ -30,6 +31,7 @@ export default function Dashboard() {
         try {
             const params = new URLSearchParams()
             if (filters.categoria && filters.categoria !== 'TODAS') params.append('categoria', filters.categoria)
+            if (filters.fuente) params.append('fuente', filters.fuente)
             if (filters.search) params.append('q', filters.search)
             if (filters.sort) params.append('sort', filters.sort)
             params.append('limit', '50')
@@ -65,10 +67,10 @@ export default function Dashboard() {
 
             {/* Mobile Header */}
             <header className="lg:hidden flex items-center justify-between p-4 bg-[var(--surface)] border-b border-[var(--border)] sticky top-0 z-40">
-                <div className="flex items-center gap-2">
+                <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <div className="w-8 h-8 rounded-lg bg-[var(--accent)] text-white flex items-center justify-center font-bold font-serif text-lg shadow-md shadow-[var(--accent)]/30">L</div>
                     <h1 className="font-serif text-lg tracking-tighter text-[var(--text)] font-bold">Licitator</h1>
-                </div>
+                </Link>
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     className="p-2 bg-[var(--surface2)] rounded-xl text-[var(--text)] transition-colors"

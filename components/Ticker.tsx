@@ -14,8 +14,8 @@ export default function Ticker({ licitaciones }: { licitaciones: any[] }) {
             </div>
 
             <div className="flex-1 overflow-hidden whitespace-nowrap mask-ticker">
-                {/* Animación custom rápida usando marquee */}
-                <div className="inline-block animate-[marquee_25s_linear_infinite]">
+                {/* Animación custom definida en globals.css */}
+                <div className="inline-block animate-marquee whitespace-nowrap">
                     {nuevas.map((l, i) => (
                         <span key={l.id} className="mx-8">
                             <span className="font-bold opacity-60 mr-2">[{l.fuente}]</span>

@@ -1,5 +1,6 @@
 'use client'
 import { Filter, Search, LayoutDashboard, Database, Settings, LogOut, X } from 'lucide-react'
+import Link from 'next/link'
 
 // types
 type Filters = {
@@ -37,17 +38,24 @@ export default function FilterSidebar({ filters, onChange, stats, onClose }: Pro
         }
     }
 
+    const handleFuenteChange = (fuente: string | null) => {
+        onChange({ ...filters, fuente })
+        if (onClose && window.innerWidth < 1024) {
+            onClose()
+        }
+    }
+
     return (
         <aside className="w-[280px] bg-[var(--surface)] border-r border-[var(--border)] p-6 sm:p-8 h-full flex flex-col gap-8 sm:gap-10 shadow-xl lg:shadow-none">
             {/* Brand & Close */}
             <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                     <div className="w-10 h-10 rounded-2xl bg-[var(--accent)] text-white flex items-center justify-center font-bold font-serif text-xl shadow-lg shadow-[var(--accent)]/30">L</div>
                     <div>
                         <h1 className="font-serif text-xl tracking-tighter text-[var(--text)] font-bold">Licitator</h1>
                         <p className="text-[9px] font-mono text-[var(--text3)] uppercase tracking-[0.2em] leading-none">Management</p>
                     </div>
-                </div>
+                </Link>
                 {onClose && (
                     <button
                         onClick={onClose}
@@ -64,14 +72,46 @@ export default function FilterSidebar({ filters, onChange, stats, onClose }: Pro
                 <div className="space-y-3">
                     <p className="text-[10px] font-bold text-[var(--text3)] uppercase tracking-widest px-2">Navegación</p>
                     <div className="space-y-1">
-                        <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-[var(--surface2)] text-[var(--accent)] font-medium text-sm transition-all">
+                        <button onClick={() => onChange({ categoria: 'TODAS', fuente: null, search: '', maxPresupuesto: 100000000, sort: 'fecha' })} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-[var(--surface2)] text-[var(--accent)] font-medium text-sm transition-all hover:opacity-80">
                             <LayoutDashboard className="w-4 h-4" />
-                            Dashboard
+                            Dashboard Inicio
                         </button>
-                        <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl text-[var(--text2)] hover:bg-[var(--surface2)] hover:text-[var(--text)] text-sm transition-all group">
-                            <Database className="w-4 h-4 group-hover:text-[var(--accent)]" />
-                            Fuentes
+                    </div>
+                </div>
+
+                {/* Fuentes */}
+                <div className="space-y-3">
+                    <div className="flex justify-between items-center px-2">
+                        <p className="text-[10px] font-bold text-[var(--text3)] uppercase tracking-widest">Fuentes</p>
+                        <Database className="w-3 h-3 text-[var(--text3)]" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <button
+                            onClick={() => handleFuenteChange(null)}
+                            className={`text-left px-4 py-2 text-xs rounded-xl transition-all flex justify-between items-center
+                                ${!filters.fuente
+                                    ? 'bg-[var(--accent)] text-white font-bold shadow-md shadow-[var(--accent)]/20 translate-x-1'
+                                    : 'text-[var(--text2)] hover:bg-[var(--surface2)] hover:text-[var(--text)]'
+                                }`}
+                        >
+                            <span>Todas</span>
                         </button>
+                        {stats?.porFuente?.map((f: any) => (
+                            <button
+                                key={f.fuente}
+                                onClick={() => handleFuenteChange(f.fuente)}
+                                className={`text-left px-4 py-2 text-xs rounded-xl transition-all flex justify-between items-center
+                                    ${filters.fuente === f.fuente
+                                        ? 'bg-[var(--accent)] text-white font-bold shadow-md shadow-[var(--accent)]/20 translate-x-1'
+                                        : 'text-[var(--text2)] hover:bg-[var(--surface2)] hover:text-[var(--text)]'
+                                    }`}
+                            >
+                                <span>{f.fuente}</span>
+                                <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded-md ${filters.fuente === f.fuente ? 'bg-white/20 text-white' : 'bg-[var(--surface2)] text-[var(--text3)]'}`}>
+                                    {f._count}
+                                </span>
+                            </button>
+                        ))}
                     </div>
                 </div>
 
