@@ -7,7 +7,7 @@ export default function Ticker({ licitaciones }: { licitaciones: any[] }) {
     if (nuevas.length === 0) return null
 
     return (
-        <div className="bg-[var(--accent)] text-white text-[10px] sm:text-[11px] font-mono py-1.5 px-3 sm:px-4 overflow-hidden shadow-sm flex items-center">
+        <div className="sticky top-0 z-50 bg-[var(--accent)] text-white text-[10px] sm:text-[11px] font-mono py-1.5 px-3 sm:px-4 overflow-hidden shadow-sm flex items-center">
             <div className="flex items-center gap-1.5 sm:gap-2 font-bold tracking-widest mr-4 sm:mr-6 shrink-0 z-10">
                 <Megaphone className="w-3.5 h-3.5" />
                 ÚLTIMA HORA

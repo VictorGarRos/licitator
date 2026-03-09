@@ -66,7 +66,7 @@ export default function Dashboard() {
             <Ticker licitaciones={licitaciones} />
 
             {/* Mobile Header */}
-            <header className="lg:hidden flex items-center justify-between p-4 bg-[var(--surface)] border-b border-[var(--border)] sticky top-0 z-40">
+            <header className="lg:hidden flex items-center justify-between p-4 bg-[var(--surface)] border-b border-[var(--border)] sticky top-[28px] sm:top-[30px] z-40">
                 <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <div className="w-8 h-8 rounded-lg bg-[var(--accent)] text-white flex items-center justify-center font-bold font-serif text-lg shadow-md shadow-[var(--accent)]/30">L</div>
                     <h1 className="font-serif text-lg tracking-tighter text-[var(--text)] font-bold">Licitator</h1>
